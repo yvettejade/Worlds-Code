@@ -81,7 +81,7 @@ void autonomous()
 
   //back up
   intakeA.move_velocity(200);
-  driveOneSquare(2.9,false,150);
+  driveOneSquare(2.8,false,150);
   intakeA.move_velocity(0);
   pros::delay(300);
   intakeA.move_velocity(-200);
@@ -103,9 +103,9 @@ void autonomous()
   pros::delay(400);
 
   liftA.move_absolute(400,200);
-  right(0.25);
+  right(0.27);
   pros::delay(300);
-  driveOneSquare(2.2,true,150);
+  driveOneSquare(2,true,150);
   pros::delay(600);
 
   driveOneSquare(2.1,false,200);
@@ -164,15 +164,15 @@ void autonomous()
   pros::delay(1500);
 
   intakeA.move_velocity(-200);
-  right(0.075);
-  angleA.move_absolute(40,200);
+  right(0.08);
+  angleA.move_absolute(350,200);
   pros::delay(300);
 
   puncherA.move_relative(-1800,200);
   pros::delay(250);
-  angleA.move_absolute(350,200);
+  angleA.move_absolute(40,200);
   intakeA.move_velocity(200);
-  while (!((angleA.get_position()<360)&&(angleA.get_position()>340)))
+  while (!((angleA.get_position()<50)&&(angleA.get_position()>30)))
     pros::delay(2);
   pros::delay(400);
   puncherA.move_relative(-1800,200);
