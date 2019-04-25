@@ -126,7 +126,7 @@ void autonomous()
   intakeA.move_velocity(0);
 
   //far
-  right(0.62);
+  right(0.625);
   //close
   //right(0.3);
   pros::delay(200);
@@ -144,8 +144,8 @@ void autonomous()
   puncherA.move_relative(-1800,200);
   pros::delay(800);
   intakeA.move_velocity(200);
-  angleA.move_absolute(400,100);
-  while (!((angleA.get_position()<410)&&(angleA.get_position()>390)))
+  angleA.move_absolute(380,100);
+  while (!((angleA.get_position()<390)&&(angleA.get_position()>370)))
     pros::delay(2);
   puncherA.move_relative(-1800,200);
   pros::delay(400);

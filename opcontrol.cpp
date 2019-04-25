@@ -283,7 +283,7 @@ void opcontrol()
   intake.set_brake_mode(MOTOR_BRAKE_BRAKE);
   angle.set_brake_mode(MOTOR_BRAKE_HOLD);
   lift.set_brake_mode(MOTOR_BRAKE_BRAKE);
-
+  setDriveCoast();
 
   //puncher.tare_position();
   //angle.tare_position();
