@@ -89,20 +89,20 @@ void autonomous()
 
   //intake
   intakeA.move_velocity(200);
-  driveOneSquare(1.6,true,200);
-  pros::delay(1500);
+  driveOneSquare(1.7,true,200);
+  pros::delay(1800);
 
   //back up
+
+  driveOneSquare(0.54,false,200);
   intakeA.move_velocity(-200);
-  pros::delay(300);
-  intakeA.move_velocity(0);
-  driveOneSquare(0.43,false,200);
   pros::delay(600);
+  intakeA.move_velocity(0);
 
   right(1.1);
   pros::delay(500);
 
-  driveOneSquare(0.8,true,200);
+  driveOneSquare(1,true,200);
   pros::delay(200);
 
   leftFrontA.set_brake_mode(MOTOR_BRAKE_HOLD);
@@ -111,11 +111,11 @@ void autonomous()
   rightBackA.set_brake_mode(MOTOR_BRAKE_HOLD);
 
   intakeA.move_velocity(-200);
-  leftFrontA.move_velocity(-150);
-  leftBackA.move_velocity(-150);
-  rightFrontA.move_velocity(-150);
-  rightBackA.move_velocity(-150);
-  pros::delay(700);
+  leftFrontA.move_velocity(-200);
+  leftBackA.move_velocity(-200);
+  rightFrontA.move_velocity(-200);
+  rightBackA.move_velocity(-200);
+  pros::delay(580);
   leftFrontA.move_velocity(0);
   leftBackA.move_velocity(0);
   rightFrontA.move_velocity(0);
@@ -124,32 +124,32 @@ void autonomous()
   intakeA.move_velocity(0);
 
   //far
-  //left(0.56);
+  left(0.635);
   //close
-  left(0.22);
+  //left(0.22);
   pros::delay(200);
 
   liftA.move_absolute(0,100);
   //far
-  //pros::delay(2600);
+  pros::delay(2200);
   //close
-  pros::delay(3200);
+  //pros::delay(3200);
 
   //far
-  angleA.move_absolute(0,200);
-  while (!((angleA.get_position()<10)&&(angleA.get_position()>-10)))
+  angleA.move_absolute(60,200);
+  while (!((angleA.get_position()<70)&&(angleA.get_position()>50)))
     pros::delay(2);
   puncherA.move_relative(-1800,200);
   pros::delay(800);
   intakeA.move_velocity(200);
-  angleA.move_absolute(400,100);
-  while (!((angleA.get_position()<410)&&(angleA.get_position()>390)))
+  angleA.move_absolute(410,100);
+  while (!((angleA.get_position()<420)&&(angleA.get_position()>400)))
     pros::delay(2);
   puncherA.move_relative(-1800,200);
   pros::delay(400);
 
   //close
-  angleA.move_absolute(130,200);
+  /*angleA.move_absolute(130,200);
   while (!((angleA.get_position()<140)&&(angleA.get_position()>120)))
     pros::delay(2);
   puncherA.move_relative(-1800,200);
@@ -159,7 +159,7 @@ void autonomous()
   while (!((angleA.get_position()<430)&&(angleA.get_position()>410)))
     pros::delay(2);
   puncherA.move_relative(-1800,200);
-  pros::delay(400);
+  pros::delay(400);*/
 
   /*leftFrontA.move_velocity(100);
   leftBackA.move_velocity(100);
