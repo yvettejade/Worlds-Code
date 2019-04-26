@@ -57,7 +57,7 @@ void driveTask(void* param)
       leftFront.move_voltage(lpower);
       rightBack.move_voltage(rpower);
       leftBack.move_voltage(lpower);
-      pros::delay(2);
+      pros::delay(400);
     }
 }
 bool pIn=false;
@@ -284,14 +284,9 @@ void opcontrol()
   angle.set_brake_mode(MOTOR_BRAKE_HOLD);
   lift.set_brake_mode(MOTOR_BRAKE_BRAKE);
 
+  if(puncher.get_position()>-8400)
+    puncher.move_absolute(-8410,100);
 
-  //puncher.tare_position();
-  //angle.tare_position();
-  //puncher.move_absolute(-1200,200);
-
-  //ineInit=line.get_value();
-  //TASK
-  //pros::Task a (angleTask, (void*)"PROS", TASK_PRIORITY_DEFAULT, TASK_STACK_DEPTH_DEFAULT, "angle");
   pros::Task d (driveTask, (void*)"PROS", TASK_PRIORITY_DEFAULT, TASK_STACK_DEPTH_DEFAULT, "drive");
   pros::Task i (intakeTask, (void*)"PROS", TASK_PRIORITY_DEFAULT, TASK_STACK_DEPTH_DEFAULT, "intake");
   pros::Task b (boringAngleTask, (void*)"PROS", TASK_PRIORITY_DEFAULT, TASK_STACK_DEPTH_DEFAULT, "boring");
@@ -299,8 +294,6 @@ void opcontrol()
   //pros::Task p (puncherTask, (void*)"PROS", TASK_PRIORITY_DEFAULT, TASK_STACK_DEPTH_DEFAULT, "puncher");
   //pros::Task x (printTask, (void*)"PROS", TASK_PRIORITY_DEFAULT, TASK_STACK_DEPTH_DEFAULT, "print");
   pros::Task l (liftTask, (void*)"PROS", TASK_PRIORITY_DEFAULT, TASK_STACK_DEPTH_DEFAULT, "lift");
-  //pros::Task v (visionTask, (void*)"PROS", TASK_PRIORITY_DEFAULT, TASK_STACK_DEPTH_DEFAULT, "vision");
-  //pros::Task y (testing, (void*)"PROS", TASK_PRIORITY_DEFAULT, TASK_STACK_DEPTH_DEFAULT, "print");
 
   bool coast=true;
   while(true)

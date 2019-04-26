@@ -168,6 +168,7 @@ void autonomous()
   angleA.move_absolute(350,200);
   pros::delay(300);
 
+  //cut second shot
   puncherA.move_relative(-1800,200);
   pros::delay(250);
   angleA.move_absolute(40,200);
@@ -176,6 +177,5 @@ void autonomous()
     pros::delay(2);
   pros::delay(400);
   puncherA.move_relative(-1800,200);
-  pros::delay(600);
 
 }
